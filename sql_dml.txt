@@ -1,0 +1,145 @@
+TABLE 1:
+
+
+
+CREATE TABLE SCHOOL1(
+   CODE NUMBER(20) NOT NULL,
+   TEACHERNAME VARCHAR(40) NOT NULL,
+   SUBJECT VARCHAR(30) NOT NULL,
+  PERIODS NUMBER(30) NOT NULL,
+   EXPERIENCE NUMBER(2) NOT NULL
+ );
+insert into SCHOOL1 values(1001,'RAVI','ENGLISH',24,10);
+
+insert into SCHOOL1 values(1002,'VIDHYA','TELUGU',30,6);
+
+insert into SCHOOL1 values(1003,'SAI','MATHEMATICS',27,4);
+
+insert into SCHOOL1 values(1004,'UMA','SOCIAL',30,5);
+
+insert into SCHOOL1 values(1005,'MAHESH','HINDHI',28,8);
+SELECT *
+FROM SCHOOL1
+
+
+TABLE 2:
+
+
+CREATE TABLE SCHOOL2(
+   ROLL NUMBER(20) NOT NULL,
+   STUDENTNAME VARCHAR(40) NOT NULL,
+   SUBJECT VARCHAR(30) NOT NULL,
+  MARKS NUMBER(30) NOT NULL,
+   RESULT varchar(2) NOT NULL
+ );
+insert into SCHOOL2 values(1,'roja','ENGLISH',60,'p');
+
+insert into SCHOOL2 values(2,'sri','TELUGU',30,'f');
+
+insert into SCHOOL2 values(3,'anu','MATHEMATICS',87,'p');
+
+insert into SCHOOL2 values(4,'radha','SOCIAL',90,'p');
+
+insert into SCHOOL2 values(5,'priya','HINDHI',78,'p');
+SELECT *
+FROM SCHOOL2
+
+
+JOINING:
+
+
+SELECT studentname,code
+FROM SCHOOL1 s1,SCHOOL2 s2
+WHERE s1.subject=s2.subject;
+
+
+
+MAXIMUM:
+
+SELECT MAX(marks)
+FROM SCHOOL2
+
+
+MINIMUM:
+
+SELECT MIN(marks)
+FROM SCHOOL2
+
+
+LIKE:
+
+SELECT teachername
+FROM SCHOOL1
+WHERE teachername LIKE '%A%';
+
+NOT LIKE:
+
+SELECT studentname
+FROM SCHOOL2
+WHERE studentname NOT LIKE '%A%';
+
+
+COUNT:
+
+
+SELECT COUNT(code)
+FROM SCHOOL1;
+
+
+AVERAGE:
+
+SELECT AVG(marks)
+FROM SCHOOL2;
+
+
+IN:
+
+SELECT code
+FROM SCHOOL1
+WHERE code IN (1001,1002);
+
+NOT IN:
+
+
+SELECT code
+FROM SCHOOL1
+WHERE code NOT IN (1001,1002);
+
+
+BETWEEN:
+
+SELECT *
+FROM SCHOOL1 
+WHERE experience BETWEEN 5 AND 10;
+
+NOT BETWEEN:
+
+SELECT *
+FROM SCHOOL1 
+WHERE experience  NOT BETWEEN 5 AND 10;
+
+
+DESCENDING:
+
+
+SELECT code
+FROM SCHOOL1 
+ORDER BY code DESC;
+
+
+ASCENDING ORDER:
+
+SELECT code
+FROM SCHOOL1 
+ORDER BY code ;
+
+SUM:
+
+SELECT sum(marks)
+FROM SCHOOL2;
+
+GROUP BY:
+
+SELECT COUNT(experience),periods
+FROM SCHOOL1
+GROUP by periods
